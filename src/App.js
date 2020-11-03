@@ -14,6 +14,7 @@ const App = () => {
     event.preventDefault()
 
     const todo = ({ name: input, id: Math.floor(Math.random() * 1000) })
+
     setTodo(todo);
     setTodos([...todos, todo])
 
@@ -28,15 +29,11 @@ const App = () => {
         <button type="submit" disabled={!input} onClick={addTodo}>Add Todo</button>
       </form>
 
-
-
       {
         todos.map(todo => (
           <Todo name={todo.name} key={todo.id} />
         ))
       }
-
-
 
     </div>
   );
