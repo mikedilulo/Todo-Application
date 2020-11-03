@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Todo = (props) => {
+
   return (
     <div className="todo">
-      <p>{props.name}</p>
+      <p>Name: {props.name}</p>
     </div>
   )
 }

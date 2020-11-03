@@ -5,11 +5,17 @@ import './App.css';
 const App = () => {
   const [input, setInput] = useState('')
   const [todos, setTodos] = useState([])
+  const [todo, setTodo] = useState({
+    name: input,
+    id: Math.floor(Math.random() * 1000)
+  })
 
   const addTodo = (event) => {
     event.preventDefault()
 
-    setTodos([...todos, input])
+    const todo = ({ name: input, id: Math.floor(Math.random() * 1000) })
+    setTodo(todo);
+    setTodos([...todos, todo])
 
     setInput('')
   }
@@ -21,11 +27,16 @@ const App = () => {
         <input type="text" value={input} onChange={(e) => setInput(e.target.value)} />
         <button type="submit" disabled={!input} onClick={addTodo}>Add Todo</button>
       </form>
+
+
+
       {
-        todos.map((todo) => (
-          <Todo name={todo} />
+        todos.map(todo => (
+          <Todo name={todo.name} key={todo.id} />
         ))
       }
+
+
 
     </div>
   );
