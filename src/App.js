@@ -7,18 +7,19 @@ const App = () => {
   const [todos, setTodos] = useState([])
   const [todo, setTodo] = useState({
     name: input,
-    id: Math.floor(Math.random() * 1000)
+    id: Math.floor(Math.random() * 1000000)
   })
 
   const addTodo = (event) => {
     event.preventDefault()
 
-    const todo = ({ name: input, id: Math.floor(Math.random() * 1000) })
+    const todo = ({ name: input, id: Math.floor(Math.random() * 1000000) })
 
     setTodo(todo);
     setTodos([...todos, todo])
 
     setInput('')
+    console.log(todos);
   }
 
   return (
